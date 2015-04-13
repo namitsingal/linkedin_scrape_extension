@@ -18,5 +18,5 @@
 	"default_popup": "popup.html"
     },
 
-    "permissions": ["activeTab", "http://*.google.com/*"]
+    "permissions": ["activeTab", "http://*.google.com/*", "downloads"]
 }

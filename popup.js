@@ -72,13 +72,18 @@ $("#get_all_details").click(function() {
 console.log("pressed get");
 //alert("clicked");
 var num = 1;
- $.ajax({
+/* $.ajax({
         type: "POST",
         url: 'http://ec2-54-165-188-58.compute-1.amazonaws.com/index.php/api/get_prospects',
         data: num,
         success: function(mydata){
     console.log("working");
     }
+});
+*/
+chrome.downloads.download({
+  url: "http://ec2-54-165-188-58.compute-1.amazonaws.com/index.php/api/get_prospects"//,
+  //filename: "suggested/filename/with/relative.path" // Optional
 });
 
 });
