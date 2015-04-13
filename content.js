@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 	//sendResponse("hello");
 	//alert(sendResponse);
 	data = {};
-	data['full-name'] = document.getElementsByClassName('full-name')[0].innerHTML;
+	data['full_name'] = document.getElementsByClassName('full-name')[0].innerHTML;
 	try
 	{
 		data['linked-in-url']= document.getElementsByClassName('view-public-profile')[0].innerHTML;

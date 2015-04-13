@@ -37,14 +37,21 @@ getCurrentTabUrl();
 /* A function creator for callbacks */
 function doStuffWithDOM(d) {
     console.log(d);
-    console.log(d['companies'][0]['CompanyName']);
+    //console.log(d['companies'][0]['CompanyName']);
     console.log(JSON.stringify(d));
+	var senddata = {
+                'full_name' : d['full_name'],
+                'companies' : d['companies'],
+		'linkedin' : d['linked-in-url'],
+                'city' : d['locality'],
+		
+            };
     $.ajax({
     	type: "POST",
-    	url: 'http://www.google.com',
-    	data: d,
-    	success: function(){
-	console.log("we did it");
+    	url: 'http://ec2-54-165-188-58.compute-1.amazonaws.com/index.php/api/add_prospect',
+    	data: senddata,
+    	success: function(mydata){
+	console.log("working");
 	}
 });
 }
@@ -60,5 +67,21 @@ $("#save_current_linked_value").click(function() {
                                 doStuffWithDOM);
     }
 });
+
+$("#get_all_details").click(function() {
+console.log("pressed get");
+//alert("clicked");
+var num = 1;
+ $.ajax({
+        type: "POST",
+        url: 'http://ec2-54-165-188-58.compute-1.amazonaws.com/index.php/api/get_prospects',
+        data: num,
+        success: function(mydata){
+    console.log("working");
+    }
+});
+
+});
+
 },false);
 
